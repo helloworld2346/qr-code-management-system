@@ -84,10 +84,11 @@ module.exports = {
     },
     // File test có thể dùng console/any thoải mái hơn
     {
-      files: ["**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx"],
+      files: ["*.cjs", "*.js", "*.config.js", "*.config.ts", "vite.config.ts"],
+      parserOptions: { project: null },
       rules: {
+        "import/no-default-export": "off",
         "no-console": "off",
-        "@typescript-eslint/no-explicit-any": "off",
       },
     },
   ],
