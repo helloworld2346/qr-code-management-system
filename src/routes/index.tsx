@@ -1,14 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import { AuthLayout } from "@/layouts/AuthLayout";
-import { DashboardLayout } from "@/layouts/DashboardLayout";
-import { LoginPage } from "@/features/auth/pages/LoginPage";
-import { AssetListPage } from "@/features/assets/pages/AssetListPage";
 import { AssetCreatePage } from "@/features/assets/pages/AssetCreatePage";
 import { AssetDetailPage } from "@/features/assets/pages/AssetDetailPage";
-import { PrintQueuePage } from "@/features/assets/pages/PrintQueuePage";
+import { AssetListPage } from "@/features/assets/pages/AssetListPage";
 import { ScannerPage } from "@/features/assets/pages/AssetScanPage";
+import { PrintQueuePage } from "@/features/assets/pages/PrintQueuePage";
+import { LoginPage } from "@/features/auth/pages/LoginPage";
 import { UnitsPage } from "@/features/units/pages/UnitsPage";
+import { AuthLayout } from "@/layouts/AuthLayout";
+import { DashboardLayout } from "@/layouts/DashboardLayout";
 import { ProtectedRoute } from "@/routes/ProtectedRoute";
 
 export const router = createBrowserRouter([

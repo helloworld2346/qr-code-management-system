@@ -1,1 +1,7 @@
-{ "save": "Lưu", "cancel": "Hủy", "delete": "Xóa", "close": "Đóng" }
+{
+  "save": "Lưu",
+  "cancel": "Hủy",
+  "delete": "Xóa",
+  "close": "Đóng",
+  "units": "Đơn vị"
+}

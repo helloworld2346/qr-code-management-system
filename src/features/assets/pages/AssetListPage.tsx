@@ -5,7 +5,7 @@ import { ErrorState } from "@/components/ui/ErrorState";
 import { Loading } from "@/components/ui/Loading";
 import { useAssets } from "@/features/assets/hooks/useAssets";
 
-export default function AssetListPage() {
+export function AssetListPage() {
   const { t } = useTranslation("assets");
   const { data, isLoading, isError, refetch } = useAssets();
 
