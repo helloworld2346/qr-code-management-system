@@ -1,7 +1,24 @@
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
-
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react()],
-})
+import path from 'node:path';  
+  
+import react from '@vitejs/plugin-react';  
+import { defineConfig } from 'vite';  
+  
+export default defineConfig(({ mode }) => ({  
+  plugins: [react()],  
+  resolve: {  
+    alias: {  
+      '@': path.resolve(__dirname, './src'),  
+    },  
+  },  
+  build: {  
+    target: 'chrome78',  
+  },  
+  esbuild: {  
+    drop: mode === 'production' ? ['console', 'debugger'] : [],  
+  },  
+  test: {  
+    globals: true,  
+    environment: 'jsdom',  
+    setupFiles: ['./src/test/setup.ts'],  
+  },  
+}));  
