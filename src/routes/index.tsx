@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import { AssetCreatePage } from "@/features/assets/pages/AssetCreatePage";
 import { AssetDetailPage } from "@/features/assets/pages/AssetDetailPage";
@@ -12,6 +12,10 @@ import { DashboardLayout } from "@/layouts/DashboardLayout";
 import { ProtectedRoute } from "@/routes/ProtectedRoute";
 
 export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Navigate to="/dashboard" replace />,
+  },
   {
     element: <AuthLayout />,
     children: [{ path: "/login", element: <LoginPage /> }],
