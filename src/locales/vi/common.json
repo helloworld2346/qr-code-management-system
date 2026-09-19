@@ -3,5 +3,8 @@
   "cancel": "Hủy",
   "delete": "Xóa",
   "close": "Đóng",
-  "units": "Đơn vị"
+  "units": "Đơn vị",
+  "errorTitle": "Đã có lỗi xảy ra",
+  "unknownError": "Lỗi không xác định",
+  "backHome": "Về trang tổng quan"
 }

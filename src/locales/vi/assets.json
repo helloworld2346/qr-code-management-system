@@ -1,4 +1,20 @@
 {
   "empty": "Chưa có tài sản nào",
-  "loadError": "Không tải được danh sách tài sản"
+  "loadError": "Không tải được danh sách tài sản",
+  "required": "Trường này là bắt buộc",
+  "save": "Lưu",
+  "create": "Tạo tài sản",
+  "printQueue": "Hàng đợi in",
+  "name": "Tên tài sản",
+  "unitId": "Đơn vị",
+  "manufacturer": "Nhà sản xuất",
+  "manufactureDate": "Ngày sản xuất",
+  "borrowedDate": "Ngày mượn",
+  "returnedDate": "Ngày trả",
+  "borrowedBy": "Người mượn",
+  "status": "Tình trạng",
+  "status_in_use": "Đang sử dụng",
+  "status_available": "Sẵn sàng",
+  "status_maintenance": "Bảo trì",
+  "status_lost": "Thất lạc"
 }

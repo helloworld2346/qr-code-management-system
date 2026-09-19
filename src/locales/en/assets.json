@@ -1,1 +1,20 @@
-{ "empty": "No assets yet", "loadError": "Failed to load assets" }
+{
+  "empty": "No assets yet",
+  "loadError": "Failed to load assets",
+  "required": "This field is required",
+  "save": "Save",
+  "create": "Create asset",
+  "printQueue": "Print queue",
+  "name": "Asset name",
+  "unitId": "Unit",
+  "manufacturer": "Manufacturer",
+  "manufactureDate": "Manufacture date",
+  "borrowedDate": "Borrowed date",
+  "returnedDate": "Returned date",
+  "borrowedBy": "Borrowed by",
+  "status": "Status",
+  "status_in_use": "In use",
+  "status_available": "Available",
+  "status_maintenance": "Maintenance",
+  "status_lost": "Lost"
+}

@@ -3,5 +3,8 @@
   "cancel": "Cancel",
   "delete": "Delete",
   "close": "Close",
-  "units": "Units"
+  "units": "Units",
+  "errorTitle": "Something went wrong",
+  "unknownError": "An unknown error occurred",
+  "backHome": "Back to dashboard"
 }

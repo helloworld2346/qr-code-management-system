@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 
+import { ThemeLanguageToggle } from "@/components/layout/ThemeLanguageToggle";  
 import { Button } from "@/components/ui/Button";
 import { useAuthStore } from "@/store/auth.store";
 
@@ -37,6 +38,9 @@ export function LoginPage() {
       onSubmit={handleSubmit(onSubmit)}
       className="w-72 rounded bg-surface p-6"
     >
+      <div className="mb-4 flex justify-end">
+        <ThemeLanguageToggle />
+      </div>
       <h1 className="mb-4 text-lg font-semibold text-text">{t("login")}</h1>
       <input
         className="mb-2 block w-full rounded border px-2 py-1"
