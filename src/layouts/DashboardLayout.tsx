@@ -6,11 +6,11 @@ import { ToastContainer } from "@/components/ui/Toast";
 
 export function DashboardLayout() {
   return (
-    <div className="min-h-screen bg-bg text-text">
-      <Header />
-      <div className="flex">
-        <Sidebar />
-        <main className="flex-1 p-4 print-area">
+    <div className="flex min-h-screen bg-bg text-text">
+      <Sidebar />
+      <div className="flex flex-1 flex-col">
+        <Header />
+        <main className="flex-1 p-6 print-area">
           <Outlet />
         </main>
       </div>

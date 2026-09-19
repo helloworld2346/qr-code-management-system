@@ -6,5 +6,14 @@
   "units": "Đơn vị",
   "errorTitle": "Đã có lỗi xảy ra",
   "unknownError": "Lỗi không xác định",
-  "backHome": "Về trang tổng quan"
+  "backHome": "Về trang tổng quan",
+  "appTitle": "Quản lý tài sản QR",
+  "dashboard": "Trang tổng quan",
+  "assets": "Tài sản",
+  "scanner": "Máy quét",
+  "printQueue": "Hàng đợi in",
+  "logout": "Đăng xuất",
+  "total": "Tổng số tài sản",
+  "available": "Có sẵn",
+  "maintenance": "Đang bảo trì"
 }
