@@ -59,17 +59,22 @@ export function LoginPage() {
             />
             <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-tr from-primary-hover to-transparent opacity-40 dark:from-bg dark:opacity-60" />
 
-            <div className="absolute left-0 top-1/2 w-full -translate-y-1/2 px-10 text-left">
-              <span className="mb-4 inline-block rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white">
-                {t("appName")}
-              </span>
-              <div className="mb-4 h-1 w-14 rounded-full bg-accent" />
-              <h2 className="text-3xl font-bold leading-tight text-white drop-shadow-lg">
-                {t("welcomeTitle")}
-              </h2>
-              <p className="mt-3 max-w-sm text-sm leading-relaxed text-white text-opacity-90 drop-shadow">
-                {t("welcomeSubtitle")}
-              </p>
+            <div className="absolute top-0 left-0 w-full p-8 lg:p-10">
+              <div className="rounded-2xl bg-black bg-opacity-25 p-6 backdrop-blur-sm">
+                <div className="mb-4 flex items-center">
+                  <span className="mr-3 inline-flex items-center rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white shadow-md">
+                    {t("appName")}
+                  </span>
+                  <span className="h-px flex-1 bg-white bg-opacity-30" />
+                </div>
+                <h2 className="text-3xl font-bold leading-tight text-white drop-shadow-lg lg:text-4xl">
+                  {t("welcomeTitle")}
+                </h2>
+                <div className="my-3 h-1 w-16 rounded-full bg-accent" />
+                <p className="max-w-sm text-sm leading-relaxed text-white text-opacity-90 drop-shadow">
+                  {t("welcomeSubtitle")}
+                </p>
+              </div>
             </div>
           </div>
 
