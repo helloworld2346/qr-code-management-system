@@ -138,16 +138,33 @@ export function UserMenu() {
               type="button"
               onClick={toggleTheme}
               aria-label={t("theme")}
-              className={`relative h-7 w-14 rounded-full transition-colors ${
-                theme === "dark" ? "bg-primary" : "bg-border"
+              aria-pressed={theme === "dark"}
+              className={`relative h-8 w-16 rounded-full border transition-colors duration-300 ${
+                theme === "dark"
+                  ? "border-primary bg-primary bg-opacity-20"
+                  : "border-border bg-bg"
               }`}
             >
+              <FiSun
+                size={13}
+                className={`absolute left-2 top-1/2 -translate-y-1/2 transition-opacity duration-300 ${
+                  theme === "dark" ? "opacity-40 text-text" : "opacity-0"
+                }`}
+              />
+              <FiMoon
+                size={13}
+                className={`absolute right-2 top-1/2 -translate-y-1/2 transition-opacity duration-300 ${
+                  theme === "dark" ? "opacity-0" : "opacity-40 text-text"
+                }`}
+              />
               <span
-                className={`absolute top-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-white text-primary shadow transition-all ${
-                  theme === "dark" ? "left-7" : "left-0.5"
+                className={`absolute top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white text-primary shadow-md transition-all duration-300 ${
+                  theme === "dark"
+                    ? "left-9 rotate-[360deg]"
+                    : "left-1 rotate-0"
                 }`}
               >
-                {theme === "dark" ? <FiMoon size={14} /> : <FiSun size={14} />}
+                {theme === "dark" ? <FiMoon size={13} /> : <FiSun size={13} />}
               </span>
             </button>
           </div>
