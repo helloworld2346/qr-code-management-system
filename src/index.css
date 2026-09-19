@@ -5,6 +5,7 @@
 :root {  
   --color-primary: #0f4c81;  
   --color-primary-hover: #0d3e6b;  
+  --color-accent: #c62839;
   --color-bg: #ffffff;  
   --color-surface: #f4f6f8;  
   --color-text: #1a202c;  
@@ -14,10 +15,11 @@
 .dark {  
   --color-primary: #3182ce;  
   --color-primary-hover: #4299e1;  
+  --color-accent: #f87171;
   --color-bg: #0f172a;  
   --color-surface: #1e293b;  
   --color-text: #f1f5f9;  
-}  
+}
   
 html,  
 body {  
@@ -35,4 +37,42 @@ body {
   .print-area {  
     display: block;  
   }  
+}
+
+@keyframes waveMove {  
+  0% {  
+    transform: translateX(0);  
+  }  
+  100% {  
+    transform: translateX(-50%);  
+  }  
+}  
+  
+@keyframes waveMoveReverse {  
+  0% {  
+    transform: translateX(-50%);  
+  }  
+  100% {  
+    transform: translateX(0);  
+  }  
+}  
+  
+.wave-layer {  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  width: 200%;  
+  height: auto;  
+}  
+  
+.wave-back {  
+  animation: waveMove 18s linear infinite;  
+}  
+  
+.wave-mid {  
+  animation: waveMoveReverse 14s linear infinite;  
+}  
+  
+.wave-front {  
+  animation: waveMove 10s linear infinite;  
 }
