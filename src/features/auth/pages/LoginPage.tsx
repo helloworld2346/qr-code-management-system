@@ -10,7 +10,7 @@ export function LoginPage() {
   const { t } = useTranslation("auth");
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-primary to-primary-hover">
+    <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-primary to-primary-hover dark:from-bg dark:to-surface">
       <svg
         className="wave-layer wave-back text-white text-opacity-20"
         viewBox="0 0 2880 320"
@@ -57,7 +57,7 @@ export function LoginPage() {
               alt=""
               className="absolute left-0 top-0 h-full w-full object-cover"
             />
-            <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-tr from-primary-hover to-transparent opacity-80" />
+            <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-tr from-primary-hover to-transparent opacity-40 dark:from-bg dark:opacity-60" />
 
             <div className="absolute left-0 top-1/2 w-full -translate-y-1/2 px-10 text-left">
               <span className="mb-4 inline-block rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white">

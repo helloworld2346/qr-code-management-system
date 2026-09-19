@@ -39,7 +39,7 @@ export function LoginForm() {
   };
 
   const inputClass =
-    "peer block w-full border-0 border-b-2 border-gray-300 bg-transparent px-8 pt-6 pb-2 text-lg text-text placeholder-transparent transition-colors focus:border-primary focus:outline-none dark:border-gray-600";
+    "peer block w-full border-0 border-b-2 border-border bg-transparent px-8 pt-6 pb-2 text-lg text-text placeholder-transparent transition-colors focus:border-primary focus:outline-none";
   const labelClass =
     "pointer-events-none absolute left-8 top-4 text-base text-text text-opacity-50 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-focus:-top-1 peer-focus:text-xs peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-1 peer-[:not(:placeholder-shown)]:text-xs";
 

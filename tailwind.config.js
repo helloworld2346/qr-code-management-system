@@ -7,10 +7,10 @@ export default {
       colors: {
         primary: "var(--color-primary)",
         "primary-hover": "var(--color-primary-hover)",
-        accent: "var(--color-accent)",
         bg: "var(--color-bg)",
         surface: "var(--color-surface)",
         text: "var(--color-text)",
+        border: "var(--color-border)",
       },
     },
   },

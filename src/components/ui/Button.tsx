@@ -11,10 +11,11 @@ export function Button({
   className = "",
   ...rest
 }: Props) {
-  const base = "px-4 py-2 rounded font-medium disabled:opacity-50";
+  const base =
+    "px-4 py-2 rounded font-medium disabled:opacity-50 transition-colors";
   const color =
     variant === "primary"
       ? "bg-primary text-white hover:bg-primary-hover"
-      : "bg-surface text-text";
+      : "bg-surface text-text border border-border hover:bg-primary hover:text-white";
   return <button className={`${base} ${color} ${className}`} {...rest} />;
 }
