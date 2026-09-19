@@ -1,56 +1,103 @@
 import { useTranslation } from "react-i18next";
-import { FiBox, FiGrid, FiMaximize, FiPrinter, FiUsers } from "react-icons/fi";
+import {
+  FiBox,
+  FiChevronLeft,
+  FiChevronRight,
+  FiGrid,
+  FiLayers,
+  FiMaximize,
+} from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 
 import logo from "@/assets/images/logo.png";
 import { useAuthStore } from "@/store/auth.store";
+import { useSidebarStore } from "@/store/sidebar.store";
 
 export function Sidebar() {
   const { t } = useTranslation("common");
   const role = useAuthStore((s) => s.user?.role);
+  const collapsed = useSidebarStore((s) => s.collapsed);
+  const toggle = useSidebarStore((s) => s.toggle);
+
+  const items = [
+    { to: "/dashboard", label: t("dashboard"), icon: FiGrid, end: true },
+    { to: "/dashboard/assets", label: t("assets"), icon: FiBox, end: false },
+    {
+      to: "/dashboard/scanner",
+      label: t("scanner"),
+      icon: FiMaximize,
+      end: false,
+    },
+    {
+      to: "/dashboard/weapons",
+      label: t("weapons"),
+      icon: FiLayers,
+      end: false,
+    },
+  ];
 
   const linkBase =
-    "mb-1 flex items-center rounded-xl px-3 py-2 text-sm font-medium text-white transition-colors";
-  const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `${linkBase} ${
-      isActive
-        ? "bg-white bg-opacity-20 shadow"
-        : "text-opacity-80 hover:bg-white hover:bg-opacity-10"
-    }`;
+    "mb-1 flex items-center rounded-xl px-3 py-2 text-sm font-medium text-white text-opacity-80 transition-colors hover:bg-white hover:bg-opacity-10 hover:text-opacity-100";
+  const linkActive = "bg-white bg-opacity-20 text-opacity-100";
 
   return (
-    <nav className="min-h-screen w-56 bg-gradient-to-b from-primary to-primary-hover p-4 no-print">
-      <div className="mb-8 flex items-center">
-        <img
-          src={logo}
-          alt="BCA"
-          className="mr-2 h-10 w-10 rounded-xl bg-white p-1"
-        />
-        <span className="text-lg font-bold tracking-wide text-white">BCA</span>
+    <nav
+      className={`flex h-full flex-col bg-primary p-3 no-print transition-all ${
+        collapsed ? "w-20" : "w-60"
+      }`}
+    >
+      <div className="mb-6 flex items-center px-1">
+        <img src={logo} alt="BCA" className="h-10 w-10 rounded-xl" />
+        {collapsed ? null : (
+          <span className="ml-3 text-lg font-bold text-white">
+            {t("appName")}
+          </span>
+        )}
       </div>
 
-      <NavLink to="/dashboard" end className={linkClass}>
-        <FiGrid className="mr-2" size={18} />
-        {t("dashboard")}
-      </NavLink>
-      <NavLink to="/dashboard/assets" className={linkClass}>
-        <FiBox className="mr-2" size={18} />
-        {t("assets")}
-      </NavLink>
-      <NavLink to="/dashboard/scanner" className={linkClass}>
-        <FiMaximize className="mr-2" size={18} />
-        {t("scanner")}
-      </NavLink>
-      <NavLink to="/dashboard/assets/print-queue" className={linkClass}>
-        <FiPrinter className="mr-2" size={18} />
-        {t("printQueue")}
-      </NavLink>
+      {items.map(({ to, label, icon: Icon, end }) => (
+        <NavLink
+          key={to}
+          to={to}
+          end={end}
+          className={({ isActive }) =>
+            `${linkBase} ${isActive ? linkActive : ""}`
+          }
+          title={collapsed ? label : undefined}
+        >
+          <Icon size={20} className="shrink-0" />
+          {collapsed ? null : <span className="ml-3">{label}</span>}
+        </NavLink>
+      ))}
+
       {role === "admin" ? (
-        <NavLink to="/dashboard/units" className={linkClass}>
-          <FiUsers className="mr-2" size={18} />
-          {t("units")}
+        <NavLink
+          to="/dashboard/units"
+          className={({ isActive }) =>
+            `${linkBase} ${isActive ? linkActive : ""}`
+          }
+          title={collapsed ? t("units") : undefined}
+        >
+          <FiLayers size={20} className="shrink-0" />
+          {collapsed ? null : <span className="ml-3">{t("units")}</span>}
         </NavLink>
       ) : null}
+
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={t("toggleSidebar")}
+        className="mt-auto flex items-center rounded-xl px-3 py-2 text-sm font-medium text-white text-opacity-80 transition-colors hover:bg-white hover:bg-opacity-10"
+      >
+        {collapsed ? (
+          <FiChevronRight size={20} className="shrink-0" />
+        ) : (
+          <>
+            <FiChevronLeft size={20} className="shrink-0" />
+            <span className="ml-3">{t("collapse")}</span>
+          </>
+        )}
+      </button>
     </nav>
   );
 }
