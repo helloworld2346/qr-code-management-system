@@ -5,12 +5,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "var(--color-primary)",
-        "primary-hover": "var(--color-primary-hover)",
-        bg: "var(--color-bg)",
-        surface: "var(--color-surface)",
-        text: "var(--color-text)",
-        border: "var(--color-border)",
+        primary: "rgb(var(--color-primary) / <alpha-value>)",
+        "primary-hover": "rgb(var(--color-primary-hover) / <alpha-value>)",
+        accent: "rgb(var(--color-accent) / <alpha-value>)",
+        bg: "rgb(var(--color-bg) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        text: "rgb(var(--color-text) / <alpha-value>)",
       },
     },
   },
