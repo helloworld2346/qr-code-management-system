@@ -73,16 +73,16 @@ export function UserMenu() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center rounded-lg px-2 py-1.5 text-text transition-colors hover:bg-primary hover:bg-opacity-10"
+        className="flex items-center rounded-lg px-2 py-1.5 text-white transition-colors hover:bg-white hover:bg-opacity-10"
       >
-        <span className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">
+        <span className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-white text-sm font-semibold text-primary">
           {user?.username?.charAt(0).toUpperCase() ?? "U"}
         </span>
         <span className="mr-1 hidden text-left sm:block">
           <span className="block text-sm font-medium leading-tight">
             {user?.username ?? "User"}
           </span>
-          <span className="block text-xs leading-tight opacity-60">
+          <span className="block text-xs leading-tight text-white text-opacity-60">
             {user?.role ?? ""}
           </span>
         </span>
@@ -93,7 +93,7 @@ export function UserMenu() {
       </button>
 
       {open ? (
-        <div className="absolute right-0 top-full mt-2 w-64 overflow-hidden rounded-xl border border-border bg-surface shadow-xl">
+        <div className="absolute right-0 top-full mt-2 w-64 overflow-hidden rounded-xl border border-border bg-surface text-text shadow-xl">
           <div className="flex items-center border-b border-border px-4 py-3">
             <span className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-base font-semibold text-white">
               {user?.username?.charAt(0).toUpperCase() ?? "U"}
@@ -108,7 +108,6 @@ export function UserMenu() {
             </span>
           </div>
 
-          {/* Language */}
           <div className="px-4 py-3">
             <span className="mb-2 block text-xs font-medium uppercase tracking-wide opacity-60">
               {t("language")}
@@ -133,7 +132,6 @@ export function UserMenu() {
             </div>
           </div>
 
-          {/* Theme — switch trượt sun/moon */}
           <div className="flex items-center justify-between border-t border-border px-4 py-3">
             <span className="text-sm font-medium">{t("theme")}</span>
             <button
@@ -154,7 +152,6 @@ export function UserMenu() {
             </button>
           </div>
 
-          {/* Logout */}
           <button
             type="button"
             onClick={() => {

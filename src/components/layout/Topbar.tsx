@@ -11,29 +11,39 @@ export function Topbar() {
   const { t } = useTranslation("common");
   const role = useAuthStore((s) => s.user?.role);
 
-  // Hover kiểu mới: chip nền mềm, icon đổi màu primary, nhích nhẹ lên
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `group flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-all ${
+    `group relative flex items-center rounded-lg px-3 py-2 text-sm font-medium transition-all ${
       isActive
-        ? "bg-primary bg-opacity-10 text-primary"
-        : "text-text opacity-70 hover:-translate-y-0.5 hover:bg-text hover:bg-opacity-5 hover:opacity-100"
+        ? "text-white text-opacity-100"
+        : "text-white text-opacity-70 hover:-translate-y-0.5 hover:bg-white hover:bg-opacity-10 hover:text-opacity-100"
     }`;
 
   const iconClass = (isActive: boolean) =>
     `mr-2 transition-colors ${
-      isActive ? "text-primary" : "text-text group-hover:text-primary"
+      isActive
+        ? "text-white"
+        : "text-white text-opacity-70 group-hover:text-opacity-100"
     }`;
 
+  const underline = (isActive: boolean) =>
+    isActive ? (
+      <span className="absolute bottom-1 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-white" />
+    ) : null;
+
   return (
-    <header className="sticky top-0 z-20 border-b border-border bg-surface no-print">
+    <header className="sticky top-0 z-20 border-b border-white border-opacity-10 bg-gradient-to-r from-primary to-primary-hover no-print dark:from-bg dark:to-surface">
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4">
         <div className="flex items-center">
-          <img src={logo} alt="BCA" className="mr-3 h-12 w-12 rounded-xl" />
+          <img
+            src={logo}
+            alt="SƯ ĐOÀN 5"
+            className="mr-3 h-14 w-14 rounded-xl"
+          />
           <div className="flex flex-col leading-tight">
-            <span className="text-xl font-bold tracking-wide text-text">
+            <span className="text-xl font-bold tracking-wide text-yellow-400">
               {t("appName")}
             </span>
-            <span className="text-xs text-text opacity-60">
+            <span className="text-xs text-white text-opacity-60">
               {t("appSubtitle")}
             </span>
           </div>
@@ -45,6 +55,7 @@ export function Topbar() {
               <>
                 <FiGrid className={iconClass(isActive)} size={16} />
                 {t("dashboard")}
+                {underline(isActive)}
               </>
             )}
           </NavLink>
@@ -56,6 +67,7 @@ export function Topbar() {
               <>
                 <FiBox className={iconClass(isActive)} size={16} />
                 {t("assets")}
+                {underline(isActive)}
               </>
             )}
           </NavLink>
@@ -67,6 +79,7 @@ export function Topbar() {
               <>
                 <FiMaximize className={iconClass(isActive)} size={16} />
                 {t("scanner")}
+                {underline(isActive)}
               </>
             )}
           </NavLink>
@@ -75,7 +88,12 @@ export function Topbar() {
               to="/dashboard/units"
               className={({ isActive }) => `ml-2 ${linkClass({ isActive })}`}
             >
-              {t("units")}
+              {({ isActive }) => (
+                <>
+                  {t("units")}
+                  {underline(isActive)}
+                </>
+              )}
             </NavLink>
           ) : null}
         </nav>
