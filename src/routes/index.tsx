@@ -10,14 +10,13 @@ import { UnitsPage } from "@/features/units/pages/UnitsPage";
 import { AuthLayout } from "@/layouts/AuthLayout";
 import { DashboardLayout } from "@/layouts/DashboardLayout";
 import { ProtectedRoute } from "@/routes/ProtectedRoute";
+import { RouteError } from "@/routes/RouteError";  
 
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Navigate to="/dashboard" replace />,
-  },
+  { path: "/", element: <Navigate to="/dashboard" replace /> },
   {
     element: <AuthLayout />,
+    errorElement: <RouteError />,
     children: [{ path: "/login", element: <LoginPage /> }],
   },
   {
@@ -26,6 +25,7 @@ export const router = createBrowserRouter([
         <DashboardLayout />
       </ProtectedRoute>
     ),
+    errorElement: <RouteError />,
     children: [
       { path: "/dashboard", element: <div>Dashboard</div> },
       {
@@ -49,4 +49,5 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  { path: "*", element: <Navigate to="/dashboard" replace /> },
 ]);
